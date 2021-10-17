@@ -37,69 +37,52 @@ class HW1 extends React.Component {
     let technologiesErr = '';
     let projectErr = '';
 
-    console.log(this.state.firstName);
-
     if (this.state.firstName === '') {
       firstNameErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(firstNameErr);
     } else if(this.state.firstName[0] !== this.state.firstName[0].toUpperCase()) {
       firstNameErr ='Данное поле должно начинаться с большой буквы!';
-      console.log(firstNameErr);
     }
 
     if (this.state.lastName === '') {
       lastNameErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(lastNameErr);
     } else if(this.state.lastName[0] !== this.state.lastName[0].toUpperCase()) {
       lastNameErr = 'Данное поле должно начинаться с большой буквы!';
-      console.log(lastNameErr);
     }
 
     if(this.state.date === '') {
       dateErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(dateErr);
     }
     
     const phoneReg = /^[0-9]{1}-[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
     if (this.state.phone === '') {
       phoneErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(phoneErr);
     } else if (phoneReg.test(this.state.phone) === false) {
       phoneErr = 'Телефон должен быть формата 7-7777-77-77';
-      console.log(phoneErr);
     }
     
     const siteReg = /^https:\/\//;
     if (this.state.site === '') {
       siteErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(siteErr);
     } else if (siteReg.test(this.state.site) === false) {
       siteErr = 'Сайт должен начинаться с https://';
-      console.log(siteErr);
     }
 
     if(this.state.about === '') {
       aboutErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(aboutErr);
     } else if (600 - this.state.about.length < 0) {
       aboutErr = 'Превышен лимит символов в поле';
-      console.log(aboutErr);
     }
 
     if(this.state.technologies === '') {
       technologiesErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(technologiesErr);
     } else if (600 - this.state.technologies.length < 0) {
       technologiesErr = 'Превышен лимит символов в поле';
-      console.log(technologiesErr);
     }
 
     if(this.state.project === '') {
       projectErr = 'Поле пустое. Заполните пожалуйста.';
-      console.log(projectErr);
     } else if (600 - this.state.project.length < 0) {
       projectErr = 'Превышен лимит символов в поле';
-      console.log(projectErr);
     }
     
     if(firstNameErr || lastNameErr || dateErr || phoneErr || siteErr || aboutErr || technologiesErr || projectErr) {
