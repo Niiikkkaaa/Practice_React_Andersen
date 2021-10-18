@@ -123,7 +123,6 @@ function HW2() {
   useEffect(() => {
     if (submitted) {
       if ( validate()) {
-        console.log('aaa');
         setIsFormValid(true);
     }
   }
