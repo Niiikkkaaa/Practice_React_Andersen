@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import '../App.css';
 
-class Form extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function Form(props) {
 
-  render() {
     return (
     <section>
-      <h2 className="header-title">Создание анкеты</h2>
+      <h2 className="header-title">Создание анкеты {props.isFormValid}</h2>
       <form className="form">
         <label for="name" className="input-label">Имя:</label>
         <input 
@@ -17,10 +13,10 @@ class Form extends React.Component {
           placeholder="Имя" 
           id="name" 
           className="input"
-          value={this.props.data.state.firstName}
-          onChange={e => this.props.data.setState({firstName: e.target.value})}
+          value={props.firstName}
+          onChange={e => props.setFirstName(e.target.value)}
         />
-        <div className="error">{this.props.data.state.firstNameError}</div>
+        <div className="error">{props.firstNameError}</div>
 
         <label for="surname" className="input-label">Фамилия:</label>
         <input 
@@ -28,19 +24,19 @@ class Form extends React.Component {
           placeholder="Фамилия" 
           id="surname" 
           className="input"
-          value={this.props.data.state.lastName}
-          onChange={e => this.props.data.setState({lastName: e.target.value})}
+          value={props.lastName}
+          onChange={e => props.setLastName(e.target.value)}
         />
-        <div className="error">{this.props.data.state.lastNameError}</div>
+        <div className="error">{props.lastNameError}</div>
 
         <label for="date" className="input-label">Дата рождения:</label>
         <input 
           type="date" 
           id="date" 
-          value={this.props.data.state.date}
-          onChange={e => this.props.data.setState({date: e.target.value})} 
+          value={props.date}
+          onChange={e => props.setDate(e.target.value)} 
         />
-        <div className="error">{this.props.data.state.dateError}</div>
+        <div className="error">{props.dateError}</div>
 
         <label for="phone" className="input-label">Телефон:</label>
         <input 
@@ -48,10 +44,10 @@ class Form extends React.Component {
           placeholder="Телефон" 
           id="phone" 
           className="input"
-          value={this.props.data.state.phone}
-          onChange={e => this.props.data.setState({phone: e.target.value})} 
+          value={props.phone}
+          onChange={e => props.setPhone(e.target.value)} 
         />
-        <div className="error">{this.props.data.state.phoneError}</div>
+        <div className="error">{props.phoneError}</div>
 
         <label for="site" className="input-label">Сайт:</label>
         <input 
@@ -59,41 +55,41 @@ class Form extends React.Component {
           placeholder="Сайт" 
           id="site" 
           className="input"
-          value={this.props.data.state.site}
-          onChange={e => this.props.data.setState({site: e.target.value})} 
+          value={props.site}
+          onChange={e => props.setSite(e.target.value)} 
         />
-        <div className="error">{this.props.data.state.siteError}</div>
+        <div className="error">{props.siteError}</div>
       
         <label for="about" className="input-label">О себе:</label>
         <textarea 
           id="about"
           placeholder="О себе..."
           className="textarea"
-          value={this.props.data.state.about}
-          onChange={e => this.props.data.setState({about: e.target.value})} 
+          value={props.about}
+          onChange={e => props.setAbout(e.target.value)} 
         />
         <div class="textarea-limit">
-          {600 - this.props.data.state.about.length >= 0 ?
-          <p>Для ввода доступно {600 - this.props.data.state.about.length} символов</p> :
+          {600 - props.about.length >= 0 ?
+          <p>Для ввода доступно {600 - props.about.length} символов</p> :
           <p>Превышен лимит символов в поле</p>}
         </div> 
 
-        <div className="error">{this.props.data.state.aboutError}</div>
+        <div className="error">{props.aboutError}</div>
 
         <label for="technologies" className="input-label">Стек технологий:</label>
         <textarea 
           id="technologies"
           placeholder="Стек технологий..."
           className="textarea"
-          value={this.props.data.state.technologies}
-          onChange={e => this.props.data.setState({technologies: e.target.value})} 
+          value={props.technologies}
+          onChange={e => props.setTechnologies(e.target.value)} 
         />
         <div class="textarea-limit">
-          {600 - this.props.data.state.technologies.length >= 0 ?
-          <p>Для ввода доступно {600 - this.props.data.state.technologies.length} символов</p> :
+          {600 - props.technologies.length >= 0 ?
+          <p>Для ввода доступно {600 - props.technologies.length} символов</p> :
           <p>Превышен лимит символов в поле</p>}
         </div> 
-        <div className="error">{this.props.data.state.technologiesError}</div>
+        <div className="error">{props.technologiesError}</div>
 
         <label for="project" className="input-label">Описание последнего проекта:</label>
         <textarea 
@@ -101,24 +97,24 @@ class Form extends React.Component {
           id="project"
           placeholder="Описание последнего проекта..."
           className="textarea"
-          value={this.props.data.state.project}
-          onChange={e => this.props.data.setState({project: e.target.value})} 
+          value={props.project}
+          onChange={e => props.setProject(e.target.value)} 
         />
         <div class="textarea-limit">
-          {600 - this.props.data.state.project.length >= 0 ?
-          <p>Для ввода доступно {600 - this.props.data.state.project.length} символов</p> :
+          {600 - props.project.length >= 0 ?
+          <p>Для ввода доступно {600 - props.project.length} символов</p> :
           <p>Превышен лимит символов в поле</p>}
         </div> 
-        <div className="error">{this.props.data.state.projectError}</div>
+        <div className="error">{props.projectError}</div>
 
         <div className="btn-container flex">
-          <button className="btn btn-reset" onClick={e => this.props.data.onReset(e)}>Отмена</button>
-          <button className="btn btn-submit" onClick={e => this.props.data.onSubmit(e)}>Сохранить</button>
+          <button className="btn btn-reset" onClick={e => props.onReset(e)}>Отмена</button>
+          <button className="btn btn-submit" onClick={e => props.onSubmit(e)}>Сохранить</button>
         </div>
       </form>
     </section>
     )
   }
-}
+
 
 export default Form;
