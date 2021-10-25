@@ -1,10 +1,10 @@
 import './App.css';
-import HW2 from './components/HW2';
+import HW3 from './HW3/HW3';
 
 function App() {
   return (
     <div className="App">
-     <HW2 />
+     <HW3 />
     </div>
   );
 }
