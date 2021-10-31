@@ -118,6 +118,10 @@
   margin-right: 0;
 }
 
+.item-title-container {
+  height: 200px;
+}
+
 .item-title {
   color: #000000;
   font-size: 20px;
@@ -274,4 +278,15 @@ body{
 .page-notfound {
   padding-top: 300px;
   text-align: center;
+}
+
+.products-cart {
+  height: 300px;
+  overflow: auto;
+  text-align: left;
+}
+
+.cart-index {
+  margin-right: 10px;
+  font-weight: 800;
 }

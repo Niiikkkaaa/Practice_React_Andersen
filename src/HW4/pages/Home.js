@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import api from '../../api/items';
+import api from '../api/products';
 import ItemInfo from '../components/ItemInfo';
 import '../../App.css'
 
@@ -8,7 +8,7 @@ function Home(props) {
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
-    const response = await api.get("/items");
+    const response = await api.get('/products');
     return response.data;
   }
 
@@ -18,6 +18,7 @@ function Home(props) {
       setItems(allItems);
     }
     getAllItems();
+    console.log(items);
   }, [props.render]);
 
     return (

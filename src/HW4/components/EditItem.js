@@ -30,7 +30,6 @@ function EditItem({setTitle, setPrice, setInStock, setDescription, setEditMode,
       </div>   
     </div>
     )
-
 }
 
 export default EditItem;

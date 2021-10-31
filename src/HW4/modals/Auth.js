@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../../App.css'
 
-function Auth({setActive, auth, setAuth}) {
+function Auth({setActive}) {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -13,8 +14,10 @@ function Auth({setActive, auth, setAuth}) {
     {login: "admin", password: "1234", role: "admin"},
   ]
 
+  let auth = useSelector(store => store.auth.auth);
+  const dispatch = useDispatch();
+
   function loginFunc(login, password) {
-    //setAuth(true);
     let isLoginCorrect = false;
     let isPasswordCorrect = false;
     setLoginError('');
@@ -32,10 +35,10 @@ function Auth({setActive, auth, setAuth}) {
     } else if (password !== users[count].password) {
       setPasswordError('Password is incorrect!');
     } else if (users[count].role === 'admin'){
-      setAuth('admin');
+      dispatch({type: 'AUTH', payload: 'admin'})
       setActive(false);
     } else {
-      setAuth('user');
+      dispatch({type: 'AUTH', payload: 'user'})
       setActive(false);
     }
   }

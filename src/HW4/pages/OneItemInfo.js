@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import '../../App.css'
-import api from '../../api/items';
+import api from '../api/products';
+import ReactDOM from 'react-dom';
 import EditItem from '../components/EditItem';
+import { useDispatch, useSelector } from 'react-redux';
 
 function OneItemInfo(props) {
   const [item, setItem] = useState([]);
@@ -18,10 +20,11 @@ function OneItemInfo(props) {
   const [inStockError, setInStockError] = useState('')
   const [descriptionError, setDescriptionError] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
+  let auth = useSelector(store => store.auth.auth);
+  const dispatch = useDispatch();
 
   const getItem = async () => {
-    const response = await api.get(`/items/${props.match.params.id}`);
+    const response = await api.get(`/products/${props.match.params.id}`);
     return response.data;
   }
 
@@ -34,26 +37,27 @@ function OneItemInfo(props) {
   }, [render]);
 
   function addToCart()  {
-    if(!item.inStock) {
+    if(!item.rating.count) {
       setIsAvailable(false);
     } else if (item.inStock - numberOfItems < 0){
       alert('Its not in stock!');
     } else {
-      api.put(`/items/${item.id}`, { 
+      api.put(`/products/${item.id}`, { 
         id: item.id,
         title: item.title,
         price: item.price,
-        img: item.img,
+        image: item.image,
         description: item.description,
-        inStock: item.inStock - numberOfItems
+        rating: {...item.rating.count -= 1},
       })
       setRender(-render);
       let allItems = [];
       for (let i = 0; i < numberOfItems; i++) {
         allItems.push(item.price);
       }
-      props.setCart([...props.cart, ...allItems]);
-      props.setCartSum(props.cartSum + item.price*numberOfItems);
+      dispatch({type: 'ADD_TO_CART', payload: parseInt(numberOfItems)});
+      dispatch({type: 'CALCULATE_CART_SUM', payload: item.price*numberOfItems});
+      dispatch({type: 'ADD_PRODUCT_TO_CART', payload: props.ItemComponent.title});
     }
   }
 
@@ -71,8 +75,10 @@ function OneItemInfo(props) {
 
     if (price === '') {
       priceErr = 'Field is empty';
-    } else if (price < 0) {
+    } else if(price < 0) {
       priceErr = 'Field cant be negative';
+    } else if (price.length > 30) {
+      priceErr ='Field cant contain more than 30 letters';
     }
     
     if (inStock === '') {
@@ -100,7 +106,7 @@ function OneItemInfo(props) {
       setPriceError('');
       setInStockError('');
       setDescriptionError('');
-      api.put(`/items/${item.id}`, { 
+      api.put(`/products/${item.id}`, { 
         id: item.id,
         title: title,
         price: price,
@@ -132,7 +138,7 @@ function OneItemInfo(props) {
   function startEditItem() {
     setTitle(item.title);
     setPrice(item.price);
-    setInStock(item.inStock);
+    setInStock(item.rating.count);
     setDescription(item.description);
     setEditMode(true);
   }
@@ -162,23 +168,23 @@ function OneItemInfo(props) {
             <h2 className="item-details-title">{item.title}</h2>
             <div className="item-details-container">
             <div className="item-details-photo">
-              <img src={item.img} width="300" height="300"/> 
+              <img src={item.image} width="300" height="300"/> 
             </div>
             <div className="item-details-info">
             <p className="item-price"><span className="item-details-price">Price:</span> {item.price} $</p>
-            <p className="item-price"><span className="item-details-price">In stock:</span> {item.inStock}</p>
+            <p className="item-price"><span className="item-details-price">In stock:</span> {item.price}</p>
             <h3>Description:</h3>
             <div className="item-description">{item.description}</div>
             <div className="item-price">
               <label for="number"><span className="item-details-price">Enter number of items:</span></label>
               <input type="number" id="number" min="1" onChange={e => setNumberOfItems(e.target.value)}/>
             </div>
-            {props.auth === "admin" ?
+            {auth === "admin" ?
             <div>
               <button className="item-add-button item-edit-button" onClick={startEditItem}>Edit item</button>
             </div>:'' }
 
-            {props.auth ? 
+            {auth ? 
             <div>
               {isAvailable ? 
               <button className="item-add-button" onClick={addToCart}>Add to cart</button>:

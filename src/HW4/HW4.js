@@ -10,7 +10,7 @@ import NotFoundPage from './pages/NotFoundPage';
 function ReactRouterApp() {
   const [cart, setCart] = useState([]);
   const [cartSum, setCartSum] = useState(0);
-  const [auth, setAuth] = useState('');
+  const [auth, setAuth] = useState('user');
   const [render, setRender] = useState(0);
   return (
     <section>
