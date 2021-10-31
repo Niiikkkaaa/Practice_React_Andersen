@@ -15,33 +15,18 @@ function ReactRouterApp() {
   return (
     <section>
     <BrowserRouter>
-    <Header 
-      cart={cart} 
-      cartSum={cartSum} 
-      auth={auth} 
-      setAuth={setAuth}
-    />
+    <Header />
       <Switch>
         <Route path="/" render={(props) => 
         <Home 
-          cart={cart} 
-          setCart={setCart} 
-          cartSum={cartSum} 
-          setCartSum={setCartSum}
           render={render}
           setRender={setRender} 
-          auth={auth}
           {...props} /> }
           exact 
         />
         <Route path="/about" component={About} exact/>
         <Route path="/:id" render={(props) => 
         <OneItemInfo 
-          cart={cart} 
-          setCart={setCart} 
-          cartSum={cartSum} 
-          setCartSum={setCartSum} 
-          auth={auth}
           {...props} /> } 
           exact
         />
