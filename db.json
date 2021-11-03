@@ -2,75 +2,63 @@
   "items": [
     {
       "id": 1,
-      "title": "IPhone",
-      "price": 1000,
-      "img": "https://itechua.com/wp-content/uploads/2019/06/74404.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 1000
+      "title": "task1",
+      "favourite": false,
+      "completed": true
     },
     {
       "id": 2,
-      "title": "IPhone 11 Pro",
-      "price": 1200,
-      "img": "https://itechua.com/wp-content/uploads/2019/06/74404.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": "100"
+      "title": "task2",
+      "favourite": false,
+      "completed": true
     },
     {
       "id": 3,
-      "title": "IPhone 11 Pro Max",
-      "price": 1500,
-      "img": "https://itechua.com/wp-content/uploads/2019/06/74404.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 99
+      "title": "task3",
+      "favourite": false,
+      "completed": true
     },
     {
       "id": 4,
-      "title": "IPhone 12",
-      "price": 1000,
-      "img": "https://ilounge.ua/files/products/apple-iphone-12-pro-max-128gb-pacific-blue-21.1000x.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 100
+      "title": "task3",
+      "favourite": false,
+      "completed": true
     },
     {
       "id": 5,
-      "title": "IPhone 12 Pro",
-      "price": 1200,
-      "img": "https://ilounge.ua/files/products/apple-iphone-12-pro-max-128gb-pacific-blue-21.1000x.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 100
+      "title": "task5",
+      "favourite": false,
+      "completed": true
     },
     {
       "id": 6,
-      "title": "IPhone 12 Pro Max",
-      "price": 1500,
-      "img": "https://ilounge.ua/files/products/apple-iphone-12-pro-max-128gb-pacific-blue-21.1000x.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 100
+      "title": "task6",
+      "favourite": true,
+      "completed": false
     },
     {
       "id": 7,
-      "title": "IPhone 13",
-      "price": 1000,
-      "img": "https://estore.ua/media/catalog/product/cache/8/image/650x650/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-13-pro-blue-select_1.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 0
+      "title": "task7",
+      "favourite": true,
+      "completed": false
     },
     {
       "id": 8,
-      "title": "IPhone 13 Pro",
-      "price": 1200,
-      "img": "https://estore.ua/media/catalog/product/cache/8/image/650x650/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-13-pro-blue-select_1.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 0
+      "title": "task8",
+      "favourite": true,
+      "completed": false
     },
     {
       "id": 9,
-      "title": "IPhone 13 Pro Max",
-      "price": 1500,
-      "img": "https://estore.ua/media/catalog/product/cache/8/image/650x650/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-13-pro-blue-select_1.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "inStock": 0
+      "title": "task9",
+      "favourite": true,
+      "completed": false
+    },
+    {
+      "id": 10,
+      "title": "task10",
+      "favourite": true,
+      "completed": false
     }
   ]
 }
