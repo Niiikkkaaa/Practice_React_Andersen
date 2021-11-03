@@ -55,7 +55,10 @@ function TodoList() {
   <section className="todolist">
     <div className="wrapper">
       <label htmlFor="task" className="input-label">Enter your task:</label>
-      <textarea className="textarea" id="task" value={task.title} onChange={e => setTask({...task, title: e.target.value})} />
+      <textarea className="textarea" 
+        id="task" 
+        value={task.title} 
+        onChange={e => setTask({...task, title: e.target.value})} />
       <div className="textarea-limit">
         {textLimit - task.title.length >= 0 ?
         <p>For input available {textLimit - task.title.length} characters</p> :
