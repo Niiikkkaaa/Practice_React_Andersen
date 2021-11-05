@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Post component should render list 1`] = `
+<ListItems>
+  <section
+    className="list-items-section"
+  >
+    <div>
+      New element
+    </div>
+    <nav
+      className="nav"
+    >
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        Completed
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        Uncompleted
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        Favourites
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        Reset
+      </button>
+    </nav>
+    <div
+      className="full-list"
+    >
+      <div>
+         
+      </div>
+    </div>
+  </section>
+</ListItems>
+`;

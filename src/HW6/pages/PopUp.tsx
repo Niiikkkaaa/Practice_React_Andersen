@@ -84,8 +84,8 @@ const PopUp: FC<IPopUp> = ({numberPopUp, setPopUp, render, setRender, setModalDe
   }
 
   function deleteItem() {
-    setModalDelete(true)
-    setPopUp(false)
+    setModalDelete(true);
+    setPopUp(false);
   }
   
   return (
@@ -101,8 +101,8 @@ const PopUp: FC<IPopUp> = ({numberPopUp, setPopUp, render, setRender, setModalDe
       <button className="btn popup-btn btn-exit" onClick={setCompleted}>Set Uncompleted</button> :
       <button className="btn popup-btn" onClick={setCompleted}>Set completed</button>
     }
-    <button className="btn popup-btn btn-exit" onClick={deleteItem}>Delete</button>
-    <button className="btn popup-btn btn-exit" onClick={() => {setPopUp(false)}}>Exit</button>
+    <button className="btn popup-btn btn-exit popup-btn-delete" onClick={deleteItem}>Delete</button>
+    <button className="btn popup-btn btn-exit popup-btn-exit" onClick={() => {setPopUp(false)}}>Exit</button>
   </div>
   )
 }

@@ -14,7 +14,7 @@ const ModalDelete: FC<IModalDelete> = ({setModalDelete,  id, render, setRender})
 
   function deleteItem() {
     api.delete(`/items/${id}`);
-    setRender(-render);
+    // setRender(-render);
     setModalDelete(false);
   }
   
@@ -22,8 +22,8 @@ const ModalDelete: FC<IModalDelete> = ({setModalDelete,  id, render, setRender})
   return (
     <section className="popup">
       <div>Вы действительно хотите удалить задачу?</div>
-      <button className="btn popup-btn btn-exit" onClick={() => {setModalDelete(false)}}>No</button>
-      <button className="btn popup-btn btn-exit" onClick={deleteItem}>Yes</button>
+      <button className="btn popup-btn btn-exit btn-exit-modal" onClick={() => {setModalDelete(false)}}>No</button>
+      <button className="btn popup-btn btn-exit btn-delete-item" onClick={deleteItem}>Yes</button>
     </section>
   )
 }

@@ -1,10 +1,10 @@
 import './App.css';
-import HW5 from './HW5/HW5';
+import HW6 from './HW6/HW6';
 import {Provider} from 'react-redux'
 
 function App() {
   return (
-    <HW5/>
+    <HW6/>
   );
 }
 

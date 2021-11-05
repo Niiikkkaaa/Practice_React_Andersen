@@ -97,23 +97,27 @@ const ListItems: FC<IListItems> = ({isRender, setIsRender} ) => {
   }
 
   return (
-    <section>
-      <div>
+    <section className='list-items-section'>
+      <div>New element</div>
+      <nav className="nav">
         <button className={classes.completed} onClick={showCompleted}>Completed</button>
         <button className={classes.uncompleted} onClick={showUnompleted}>Uncompleted</button>
         <button className={classes.favourites} onClick={showFavourites}>Favourites</button>
         <button className="btn" onClick={resetFilter}>Reset</button>
-      </div>
+      </nav>
+      <div className="full-list">
       {!filter.favourite && !filter.completed && !filter.uncompleted ?
       <div>
       {listOfTasks.map((taskItem: IItem, index: number) => (
         <div className="flex task-container">
           <span className="task-index">{index +=1 }.</span>{taskItem.title}
           <button className="btn btn-menu" onClick={() => {openPopUp(taskItem.id)}}><img src={menu} width="20" height="20"/></button>
+          <div className="">
           {taskItem.favourite ? 
             <button onClick={() => {removeFromFavourites(taskItem)}} className="btn-favourites"><img src={star} width="20" height="20"/></button>
             : ''
           }
+          </div>
           {taskItem.completed ? 
             <button onClick={() => {removeFromCompleted(taskItem)}} className="btn-favourites"><img src={done} width="20" height="20"/></button>
             : ''
@@ -121,6 +125,7 @@ const ListItems: FC<IListItems> = ({isRender, setIsRender} ) => {
         </div>
         
       ))} </div>: ''}
+      </div>
 
       {filter.favourite ?
       <div>
